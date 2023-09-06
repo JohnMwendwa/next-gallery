@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SearchBar from "./SearchBar";
 
 export default function Navbar() {
   return (
@@ -7,6 +8,7 @@ export default function Navbar() {
         <h1 className="text-2xl  sm:text-3xl text-center whitespace-nowrap">
           <Link href={"/"}>Next.js Image Gallery</Link>
         </h1>
+        <SearchBar />
       </nav>
     </header>
   );
