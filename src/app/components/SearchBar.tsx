@@ -1,0 +1,28 @@
+"use client";
+
+import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
+
+export default function SearchBar() {
+  const [query, setQuery] = useState("");
+  const router = useRouter();
+  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    router.push(`/results/${query}`);
+    setQuery("");
+  };
+  return (
+    <form
+      className="flex justify-center md:justify-between"
+      onSubmit={handleSubmit}
+    >
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        placeholder="Search"
+        className="bg-white p-2 w-[260px] sm:w-80 text-xl rounded-xl text-black"
+      />
+    </form>
+  );
+}
